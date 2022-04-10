@@ -46,9 +46,9 @@ public class EmplyeeController {
 	}
 	 
 	 @GetMapping("/get/{id}")
-	 public String getEmployee (@PathVariable Long id) {
+	 public Employee getEmployee (@PathVariable Long id) {
 		 
-		 return "Fatching the employee details for the id " + id;
+		return eService.getSingleEmployee(id);
 			
 		}
 	 @PostMapping("/add")
@@ -60,15 +60,15 @@ public class EmplyeeController {
 	 
 	 @PutMapping("/update/{id}")
 	 public Employee updateEmployee (@PathVariable Long id, @RequestBody Employee employee) {
-		 System.out.println("Updating the employee data for the id"+id);
-		 return employee;
+		 employee.setId(id);
+		 return eService.updateEmployee(employee);
 		 
 	 }
 	 
 	 @DeleteMapping("/delete/{id}")
-	 public String deleteEmployee (@RequestParam Long id ) {
+	 public void deleteEmployee (@RequestParam Long id ) {
 		 
-		 return "Deleting the employee details forthe id" + id;
+		 eService.deleteEmployee(id);
 		 
 	 }
 
