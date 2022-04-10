@@ -3,18 +3,25 @@ package com.pius.employee_rest_api.controller;
 
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 
 
 import com.pius.employee_rest_api.model.Employee;
+import com.pius.employee_rest_api.service.EmployeeService;
 
 
 
 @RestController // @Controller + @ResponseBody
 @RequestMapping("/employees")      
 public class EmplyeeController {
+	
+	@Autowired
+	private EmployeeService eService;
 	
 	@Value("${app.name}")
 	private String appName;
@@ -30,9 +37,9 @@ public class EmplyeeController {
 	
 	//@RequestMapping(value= "/employees", method = RequestMethod.GET)
 	
-	 @GetMapping("/getAll")
-	public String getEmployees () {
-		return "Displaying the list of employees";
+	@GetMapping("/getAll")
+	public List<Employee> getEmployees () {
+		return eService.getEmployees();
 	}
 	 
 	 @GetMapping("/get/{id}")
