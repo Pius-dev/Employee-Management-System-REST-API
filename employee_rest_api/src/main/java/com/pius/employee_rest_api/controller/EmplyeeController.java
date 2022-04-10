@@ -5,13 +5,14 @@ package com.pius.employee_rest_api.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 
-
 import com.pius.employee_rest_api.model.Employee;
+import com.pius.employee_rest_api.repository.EmployeeRepository;
 import com.pius.employee_rest_api.service.EmployeeService;
 
 
@@ -22,6 +23,8 @@ public class EmplyeeController {
 	
 	@Autowired
 	private EmployeeService eService;
+	
+
 	
 	@Value("${app.name}")
 	private String appName;
@@ -49,9 +52,10 @@ public class EmplyeeController {
 			
 		}
 	 @PostMapping("/add")
-	 public String saveEmployee (@RequestBody Employee employee) {
-		return "Saving the employees details on the database" + employee;
+	 public Employee saveEmployee (@RequestBody Employee employee) {
 		 
+		        return eService.saveEmployee(employee);
+		
 	 }
 	 
 	 @PutMapping("/update/{id}")
