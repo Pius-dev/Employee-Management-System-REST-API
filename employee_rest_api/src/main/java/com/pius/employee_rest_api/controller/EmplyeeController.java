@@ -17,7 +17,7 @@ import com.pius.employee_rest_api.service.EmployeeService;
 
 
 @RestController // @Controller + @ResponseBody
-@RequestMapping("/employees")      
+//@RequestMapping("/api/employees")    // The Base path is set on the property file  
 public class EmplyeeController {
 	
 	@Autowired
