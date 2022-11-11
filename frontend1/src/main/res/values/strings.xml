@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Employee App</string>
+    <string name="form_name">Name</string>
+    <string name="form_department">Department</string>
+    <string name="form_employeecode">EmployeeCode</string>
+    <string name="form_imageurl">ImageUrl</string>
+    <string name="form_location">Location</string>
+    <string name="form_job_title">Job Title</string>
+    <string name="form_email">Email</string>
+    <string name="save_employee">Save Employee</string>
+</resources>
